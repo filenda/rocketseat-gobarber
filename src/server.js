@@ -26,6 +26,8 @@ class App {
       autoescape: true
     })
 
+    //  tells express to make the 'public' folder and it's files publicly accessable
+    this.express.use(express.static(path.resolve(__dirname, 'public')))
     this.express.set('view engine', 'njk')
   }
 

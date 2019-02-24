@@ -6,8 +6,8 @@ module.exports = {
   database: 'gonodemodulo2',
   operatorAliases: false,
   define: {
-    timestamps: true, // snake case for fields
-    underscored: true, // snake case for table names
-    underscoredAll: true
+    timestamps: true, //  Automatically adds created_at and updated_at for every table
+    underscored: true, // snake case for fields
+    underscoredAll: true // snake case for table names
   }
 }
