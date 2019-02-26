@@ -27,3 +27,19 @@ docker ps
 # runs the migration
 
 npx sequelize db:migrate
+
+# lib to encrypt and decrypt password
+
+yarn add bcryptjs
+
+# lib to enable file upload to the server
+
+yarn add multer
+
+# lib to make session available to use
+
+yarn add express-session
+
+# lib to enable session file storage
+
+yarn add session-file-store

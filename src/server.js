@@ -1,4 +1,6 @@
 const express = require('express')
+const session = require('express-session')
+const FileStore = require('session-file-store')(session)
 const nunjucks = require('nunjucks')
 const path = require('path')
 
@@ -15,6 +17,17 @@ class App {
 
   middlewares () {
     this.express.use(express.urlencoded({ extended: false }))
+    this.express.use(
+      session({
+        name: 'root',
+        secret: 'MyAppSecret', // this crypto password should go somewhere else
+        resave: true,
+        store: new FileStore({
+          path: path.resolve(__dirname, '..', 'tmp', 'sessions')
+        }),
+        saveUninitialized: true
+      })
+    )
   }
 
   views () {
@@ -36,5 +49,5 @@ class App {
   }
 }
 
-//  exports a new instance of 'App' together with its express instance
+//  exports only the object of interest (aka express) of an instance of 'App'
 module.exports = new App().express
