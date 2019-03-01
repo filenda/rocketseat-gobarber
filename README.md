@@ -43,3 +43,9 @@ yarn add express-session
 # lib to enable session file storage
 
 yarn add session-file-store
+
+# lib to store objects that stay available throughout the aplication
+
+# only for the immediate following request (similar to tempdata in c#)
+
+yarn add connect-flash
