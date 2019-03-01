@@ -10,6 +10,7 @@ const guestMiddleware = require('./app/middlewares/guest')
 const UserController = require('./app/controllers/UserController')
 const SessionController = require('./app/controllers/SessionController')
 const DashboardController = require('./app/controllers/DashboardController')
+const FileController = require('./app/controllers/FileController')
 
 //  makes 'flashSuccess' and 'flashError' avaiable for all views to use
 routes.use((req, res, next) => {
@@ -18,6 +19,8 @@ routes.use((req, res, next) => {
 
   return next()
 })
+
+routes.get('/files/:file', FileController.show)
 
 routes.get('/', guestMiddleware, SessionController.create)
 routes.post('/signin', SessionController.store)
